@@ -102,10 +102,11 @@ class _HomepageState extends State<Homepage> {
                       : showDialog(
                           context: context,
                           builder: (_) => AlertDialog(
-                                backgroundColor: CustomunClrBar,
-                                title: const Text('Connection Error'),
-                                content: const Text('Check your connectivity'),
-                              ));
+                            backgroundColor: CustomunClrBar,
+                            title: const Text('Connection Error'),
+                            content: const Text('Check your connectivity'),
+                          ),
+                        );
                 });
               },
               child: const Text('Detect Classroom'),

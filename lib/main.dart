@@ -73,8 +73,8 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: 'Explore',
+            icon: Icon(Icons.output),
+            label: 'Data',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),

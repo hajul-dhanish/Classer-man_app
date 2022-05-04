@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:tsukiyomi/globalvar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -61,20 +60,20 @@ class _HomepageState extends State<Homepage> {
                 fixedSize: MaterialStateProperty.all(const Size(2000, 40)),
               ),
               onPressed: () async {
-                bool isConnected =
-                    await InternetConnectionChecker().hasConnection;
+                // bool isConnected =
+                //     await InternetConnectionChecker().hasConnection;
 
-                setState(() {
-                  isConnected
-                      ? _launchTrainURL()
-                      : showDialog(
-                          context: context,
-                          builder: (_) => AlertDialog(
-                                backgroundColor: CustomunClrBar,
-                                title: const Text('Connection Error'),
-                                content: const Text('Check your connectivity'),
-                              ));
-                });
+                // setState(() {
+                //   isConnected
+                //       ? _launchTrainURL()
+                //       : showDialog(
+                //           context: context,
+                //           builder: (_) => AlertDialog(
+                //                 backgroundColor: CustomunClrBar,
+                //                 title: const Text('Connection Error'),
+                //                 content: const Text('Check your connectivity'),
+                //               ));
+                // });
               },
               child: const Text('Train Data'),
             ),
@@ -91,21 +90,21 @@ class _HomepageState extends State<Homepage> {
                 fixedSize: MaterialStateProperty.all(const Size(2000, 40)),
               ),
               onPressed: () async {
-                bool isConnected =
-                    await InternetConnectionChecker().hasConnection;
+                // bool isConnected =
+                //     await InternetConnectionChecker().hasConnection;
 
-                setState(() {
-                  isConnected
-                      ? _launchDetectURL()
-                      : showDialog(
-                          context: context,
-                          builder: (_) => AlertDialog(
-                            backgroundColor: CustomunClrBar,
-                            title: const Text('Connection Error'),
-                            content: const Text('Check your connectivity'),
-                          ),
-                        );
-                });
+                // setState(() {
+                //   isConnected
+                //       ? _launchDetectURL()
+                //       : showDialog(
+                //           context: context,
+                //           builder: (_) => AlertDialog(
+                //             backgroundColor: CustomunClrBar,
+                //             title: const Text('Connection Error'),
+                //             content: const Text('Check your connectivity'),
+                //           ),
+                //         );
+                // });
               },
               child: const Text('Detect Classroom'),
             ),

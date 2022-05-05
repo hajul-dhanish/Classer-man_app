@@ -30,23 +30,16 @@ const spreadsheetid = '1oKFXdt9YbNpI4NnGlubgsikXzKqvPXmxrYlefJKrT34';
 //   runApp(const ExplorePage());
 // }
 
-
 class ExplorePage extends StatefulWidget {
   const ExplorePage({Key? key}) : super(key: key);
 
-
-
   @override
   State<ExplorePage> createState() => _ExplorePageState();
-
-
-
 }
 
-class _ExplorePageState extends State<ExplorePage>  {
+class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -59,7 +52,6 @@ class _ExplorePageState extends State<ExplorePage>  {
               ),
             ),
             Div,
-            
           ],
         ),
       ),

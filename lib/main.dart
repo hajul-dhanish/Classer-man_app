@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gsheets/gsheets.dart';
-import 'package:tsukiyomi/page/explore.dart';
+
 import 'package:tsukiyomi/page/home.dart';
 import 'package:tsukiyomi/page/profile.dart';
 import 'package:tsukiyomi/page/settings.dart';
 import 'globalvar.dart';
 
-void main() async{
-    final gsheet = GSheets(credentials);
-  final ss = await gsheet.spreadsheet(spreadsheetid);
-  var sheet = ss.worksheetByTitle('Project-classer');
-
-  final cellsRow = await sheet!.cells.row(1);
+void main() {
   runApp(const MyApp());
 }
 

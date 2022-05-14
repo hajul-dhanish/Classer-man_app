@@ -42,11 +42,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: TextStyle(fontSize: 20),
                   ),
                   Div,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Wrap(
                     children: [
                       const Text(
-                        "Project Guide : ",
+                        "Project Guide :",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Text(

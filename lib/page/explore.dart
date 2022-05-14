@@ -132,56 +132,52 @@ class _ExplorePageState extends State<ExplorePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Card(
-        child: FutureBuilder<List<Data>>(
-          future: futureData,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              List<Data>? data = snapshot.data;
-              return SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: DataTable(
-                    columns: const [
-                      DataColumn(
-                        label: Text('Roll Number'),
-                      ),
-                      DataColumn(
-                        label: Text('Name'),
-                      ),
-                      DataColumn(
-                        label: Text('Report'),
-                      ),
-                    ],
-                    rows: data!
-                        .map((data) => DataRow(cells: [
-                              DataCell(Text(data.roll_number.toString())),
-                              DataCell(Text(data.name)),
-                              DataCell(Text(data.report.toString())),
-                            ]))
-                        .toList()),
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-            // By default show a loading spinner.
-            // return const CircularProgressIndicator();
-            return SizedBox(
-              // width: 200.0,
-              // height: 100.0,
-              child: Shimmer.fromColors(
-                baseColor: Colors.black,
-                highlightColor: Colors.yellow,
-                child: const Center(
-                  child: Text(
-                    'Loading',
-                  ),
+    return Card(
+      child: FutureBuilder<List<Data>>(
+        future: futureData,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<Data>? data = snapshot.data;
+            return SingleChildScrollView(
+              child: DataTable(
+                  columns: const [
+                    DataColumn(
+                      label: Text('Roll Number'),
+                    ),
+                    DataColumn(
+                      label: Text('Name'),
+                    ),
+                    DataColumn(
+                      label: Text('Report'),
+                    ),
+                  ],
+                  rows: data!
+                      .map((data) => DataRow(cells: [
+                            DataCell(Text(data.roll_number.toString())),
+                            DataCell(Text(data.name)),
+                            DataCell(Text(data.report.toString())),
+                          ]))
+                      .toList()),
+            );
+          } else if (snapshot.hasError) {
+            return Text("${snapshot.error}");
+          }
+          // By default show a loading spinner.
+          // return const CircularProgressIndicator();
+          return SizedBox(
+            // width: 200.0,
+            // height: 100.0,
+            child: Shimmer.fromColors(
+              baseColor: Colors.black,
+              highlightColor: Colors.yellow,
+              child: const Center(
+                child: Text(
+                  'Fetching data...',
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

@@ -11,7 +11,6 @@ class Homepage extends StatefulWidget {
 
 bool _validate = false;
 final name = TextEditingController();
-final rrn = TextEditingController();
 
 class _HomepageState extends State<Homepage> {
   @override
@@ -32,20 +31,12 @@ class _HomepageState extends State<Homepage> {
             Div,
             Div,
             TextField(
+              keyboardType: TextInputType.number,
               controller: name,
               decoration: InputDecoration(
                 errorText: _validate ? 'Value Can\'t Be Empty' : null,
                 border: const OutlineInputBorder(),
-                labelText: 'Enter Your Name',
-              ),
-            ),
-            Div,
-            TextField(
-              controller: rrn,
-              decoration: InputDecoration(
-                errorText: _validate ? 'Value Can\'t Be Empty' : null,
-                border: const OutlineInputBorder(),
-                labelText: 'Enter Your RRN',
+                labelText: 'IP Address',
               ),
             ),
             Div,
@@ -56,19 +47,10 @@ class _HomepageState extends State<Homepage> {
                     backgroundColor: MaterialStateProperty.all(Colors.blueGrey),
                   ),
                   onPressed: () {
-                    if (rrn.text.isNotEmpty && name.text.isNotEmpty) {
-                      // _launchTrainURL();
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: const Text("Under Development..."),
-                        action: SnackBarAction(label: "OK", onPressed: () {}),
-                      ));
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content:
-                            const Text("Fill the Valid student information"),
-                        action: SnackBarAction(label: "OK", onPressed: () {}),
-                      ));
-                    }
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: const Text("Under Development..."),
+                      action: SnackBarAction(label: "OK", onPressed: () {}),
+                    ));
                   },
                   child: const Text(
                     'Train Data',
@@ -76,14 +58,29 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 const SizedBox(
-                  width: 30,
+                  width: 20,
                 ),
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.green),
                   ),
                   onPressed: () {
-                    _launchDetectURL();
+                    if (name.text.isNotEmpty) {
+                      setState(() {
+                        _launchDetectURL();
+                      });
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content:
+                              const Text("Please enter the valid IP-address"),
+                          action: SnackBarAction(
+                            label: "OK",
+                            onPressed: () {},
+                          ),
+                        ),
+                      );
+                    }
                   },
                   child: const Text(
                     'Mark Attendance',
@@ -93,9 +90,6 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
             Div,
-            Div,
-            const Text("Real Time Data Implementation Process "
-                "will design after Second Review"),
             Div,
             Text(info3),
           ],
@@ -116,8 +110,8 @@ class _HomepageState extends State<Homepage> {
 
 ////////// -----
 
-final Uri _detect = Uri.parse("http://192.168.134.219:5000/detect");
+final Uri _detect = Uri.parse("${name.text}/detect");
 
 void _launchDetectURL() async {
-  if (!await launchUrl(_detect)) throw 'Could not launch $_detect';
+  await launchUrl(_detect);
 }

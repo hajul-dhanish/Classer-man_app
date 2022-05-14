@@ -36,6 +36,11 @@ dependencies:
   url_launcher: ^6.1.2
   gsheets: ^0.4.2
   shimmer: ^2.0.0
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  image_path: "assets/db.jpg" 
+  android: "launcher_icon"
 
 dev_dependencies:
   flutter_test:

@@ -113,10 +113,10 @@ class ItemCard extends StatelessWidget {
         onTap: () {
           showDialog(
               context: context,
-              builder: (_) => AlertDialog(
-                    backgroundColor: CustomunClrBar,
-                    title: const Text('We Working On It'),
-                    content: const Text('Will be There on Third Review :)'),
+              builder: (_) => const AlertDialog(
+                    // backgroundColor: CustomunClrBar,
+                    title: Text('We Working On It'),
+                    content: Text('Will be There on Third Review :)'),
                   ));
         });
     //   },

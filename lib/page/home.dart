@@ -49,64 +49,48 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             Div,
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(CustomClrBar),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+            Row(
+              children: [
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blueGrey),
+                  ),
+                  onPressed: () {
+                    if (rrn.text.isNotEmpty && name.text.isNotEmpty) {
+                      // _launchTrainURL();
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: const Text("Under Development..."),
+                        action: SnackBarAction(label: "OK", onPressed: () {}),
+                      ));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content:
+                            const Text("Fill the Valid student information"),
+                        action: SnackBarAction(label: "OK", onPressed: () {}),
+                      ));
+                    }
+                  },
+                  child: const Text(
+                    'Train Data',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
-                fixedSize: MaterialStateProperty.all(const Size(2000, 40)),
-              ),
-              onPressed: () async {
-                // bool isConnected =
-                //     await InternetConnectionChecker().hasConnection;
-
-                // setState(() {
-                //   isConnected
-                //       ? _launchTrainURL()
-                //       : showDialog(
-                //           context: context,
-                //           builder: (_) => AlertDialog(
-                //                 backgroundColor: CustomunClrBar,
-                //                 title: const Text('Connection Error'),
-                //                 content: const Text('Check your connectivity'),
-                //               ));
-                // });
-              },
-              child: const Text('Train Data'),
-            ),
-            Div,
-            const Divider(),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.orange),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                const SizedBox(
+                  width: 30,
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
+                  onPressed: () {
+                    _launchDetectURL();
+                  },
+                  child: const Text(
+                    'Mark Attendance',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
-                fixedSize: MaterialStateProperty.all(const Size(2000, 40)),
-              ),
-              onPressed: () async {
-                // bool isConnected =
-                //     await InternetConnectionChecker().hasConnection;
-
-                // setState(() {
-                //   isConnected
-                //       ? _launchDetectURL()
-                //       : showDialog(
-                //           context: context,
-                //           builder: (_) => AlertDialog(
-                //             backgroundColor: CustomunClrBar,
-                //             title: const Text('Connection Error'),
-                //             content: const Text('Check your connectivity'),
-                //           ),
-                //         );
-                // });
-              },
-              child: const Text('Detect Classroom'),
+              ],
             ),
             Div,
             Div,
@@ -121,14 +105,19 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-String _train = "http://192.168.134.219:5000/train/${name.text}/${rrn.text}";
+////////// -----
 
-String _detect = "http://192.168.134.219:5000/detect";
+// final Uri _train =
+//     Uri.parse("http://192.168.134.219:5000/train/${name.text}/${rrn.text}");
+
+// void _launchTrainURL() async {
+//   if (!await launchUrl(_train)) throw 'Could not launch $_train';
+// }
+
+////////// -----
+
+final Uri _detect = Uri.parse("http://192.168.134.219:5000/detect");
 
 void _launchDetectURL() async {
-  if (!await launch(_detect)) throw 'Could not launch $_detect';
-}
-
-void _launchTrainURL() async {
-  if (!await launch(_train)) throw 'Could not launch $_train';
+  if (!await launchUrl(_detect)) throw 'Could not launch $_detect';
 }

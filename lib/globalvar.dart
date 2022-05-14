@@ -17,25 +17,25 @@ SizedBox Div = const SizedBox(
   width: 8,
 );
 
-ThemeData CustomTheme = ThemeData(
-  textTheme: const TextTheme(
-    caption: TextStyle(color: Colors.black),
-    headline1: TextStyle(color: Colors.black),
-    bodyText1: TextStyle(color: Colors.black),
-    bodyText2: TextStyle(color: Colors.black),
-  ),
-  primaryColor: Colors.white,
-  scaffoldBackgroundColor: Colors.blueGrey[50],
-  cardColor: Colors.blueGrey,
-  splashColor: Colors.blueGrey,
-  appBarTheme: AppBarTheme(color: Colors.amber[100]),
-);
+// ThemeData CustomTheme = ThemeData(
+//   textTheme: const TextTheme(
+//     caption: TextStyle(color: Colors.black),
+//     headline1: TextStyle(color: Colors.black),
+//     bodyText1: TextStyle(color: Colors.black),
+//     bodyText2: TextStyle(color: Colors.black),
+//   ),
+//   primaryColor: Colors.white,
+//   scaffoldBackgroundColor: Colors.blueGrey[50],
+//   cardColor: Colors.blueGrey,
+//   splashColor: Colors.blueGrey,
+//   appBarTheme: AppBarTheme(color: Colors.amber[100]),
+// );
 
-Color? inactiveColor = Colors.amber[50];
+// Color? inactiveColor = Colors.amber[50];
 
-Color? CustomClrBar = Colors.blueGrey[600];
-Color? CustomunClrBar = Colors.blueGrey[50];
-Color? TextClr = Colors.black;
+// Color? CustomClrBar = Colors.blueGrey[600];
+// Color? CustomunClrBar = Colors.blueGrey[50];
+// Color? TextClr = Colors.black;
 
 String Info1 = " Student attendance system in classrooms: The idea of this "
     "code is to verify is the subjects that are enrolled are "

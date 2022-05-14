@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:tsukiyomi/page/home.dart';
 import 'package:tsukiyomi/page/profile.dart';
-import 'package:tsukiyomi/page/settings.dart';
-import 'globalvar.dart';
+
+import 'page/explore.dart';
+import 'page/settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: CustomTheme,
+      theme: ThemeData(useMaterial3: true),
       home: const MainScreen(),
     );
   }
@@ -38,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   final List<Widget> _tabs = [
     const Homepage(),
-    // const ExplorePage(),
+    const ExplorePage(),
     SettingsPage(),
     const ProfilePage(),
   ];
@@ -63,7 +64,6 @@ class _MainScreenState extends State<MainScreen> {
             Text("Tsukiyomi")
           ],
         ),
-        backgroundColor: CustomClrBar,
         elevation: 0,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -86,9 +86,6 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        unselectedItemColor: CustomunClrBar,
-        backgroundColor: CustomClrBar,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         elevation: 0,

@@ -81,7 +81,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Div,
             const LinearProgressIndicator(
-              value: 0.8,
+              value: 0.9,
               minHeight: 10,
               backgroundColor: Colors.blueGrey,
               valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
@@ -91,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: const [
                 Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("20% Left.."),
+                  child: Text("10% Left.."),
                 )
               ],
             ),
